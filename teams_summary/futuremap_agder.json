@@ -1,0 +1,24 @@
+{
+  "teamNumber": 16,
+  "projectName": "FutureMap Agder",
+  "projectType": "Interactive Web Map Application",
+  "description": "A sustainability comparison tool titled 'Agder 2050: Our Choice' showing the Agder region in different future scenarios (2050). Features satellite/standard map toggle, comparison modes (Today vs. Sustainable 2050 vs. Non-sustainable 2050), image slider comparison for Tangen VGS future visualization, flood/drought/fire risk zones, sustainability tips section, news section, and an AI 'Climate Expert' chatbot.",
+  "technologies": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "Leaflet.js",
+    "FontAwesome",
+    "AOS (Animate On Scroll)",
+    "Google Fonts (Poppins)"
+  ],
+  "logo": null,
+  "teamMembers": null,
+  "additionalFiles": [
+    "Agder_2050__Our_Choice.mp4",
+    "AI Bærekraft Video.mp4",
+    "Raport.pdf",
+    "Ai prosjekt.docx"
+  ],
+  "folderPath": "Team 16/maps/"
+}

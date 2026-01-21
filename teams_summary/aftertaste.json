@@ -1,0 +1,22 @@
+{
+  "teamNumber": 5,
+  "projectName": "AFTERTASTE",
+  "projectType": "Interactive Web Experience / Visual Novel",
+  "description": "A cinematic, scroll-based interactive story set in Kristiansand, Norway 2075. The narrative follows a character in a 'perfect' utopian society who discovers unsettling truths when they miss their daily medication. Features scene chronology with images, videos, text, glitch effects, and audio. A dystopian/utopian exploration story about sustainability and societal control.",
+  "technologies": [
+    "React 19",
+    "Vite 7",
+    "Custom scene/audio system"
+  ],
+  "logo": "Team 5/AFTERTASTE/public/aftertaste-logo.png",
+  "teamMembers": null,
+  "additionalFiles": [
+    "ADD VIDEO.mp4",
+    "Making_of__Aftertaste_.mp4",
+    "Projekt plan Aftertaste.docx",
+    "Rapport Aftertaste.docx",
+    "READTHIS!!!.md",
+    "CHRONOLOGY.md"
+  ],
+  "folderPath": "Team 5/AFTERTASTE/"
+}

@@ -1,0 +1,17 @@
+{
+  "teamNumber": 6,
+  "projectName": "EcoDex",
+  "projectType": "Web App",
+  "description": "An environmental/nature web application. The actual web app is hosted externally with a link provided in the documentation. Details available in 'Rapport: Utviklingen av EcoDex'.",
+  "technologies": [],
+  "logo": null,
+  "teamMembers": null,
+  "additionalFiles": [
+    "EcoDex dokumentar.mp4",
+    "Reklamevideo EcoDex.mov",
+    "Prosjektplan team 6.docx",
+    "Link til nettappen.docx",
+    "Rapport_ Utviklingen av EcoDex.docx"
+  ],
+  "folderPath": "Team 6/"
+}

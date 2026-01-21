@@ -1,0 +1,22 @@
+{
+  "teamNumber": 7,
+  "projectName": "Klimablikk Norge",
+  "projectType": "Website",
+  "description": "A sustainability and nature awareness website (Climate View Norway) with sections on climate, nature, and recycling. Features video content, donation functionality, and educational tips about sustainability. Includes a Python server option for local hosting.",
+  "technologies": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Python (simple HTTP server)"
+  ],
+  "logo": null,
+  "teamMembers": null,
+  "additionalFiles": [
+    "AI Proj.mp4",
+    "AI Slutt Reklame.mp4",
+    "Dokumentar - Prosess.mp4",
+    "Prosjektplan.pdf",
+    "Sluttrapport.pdf"
+  ],
+  "folderPath": "Team 7/Nettside AI- prosjekt/"
+}

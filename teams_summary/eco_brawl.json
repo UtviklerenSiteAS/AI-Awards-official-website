@@ -1,0 +1,21 @@
+{
+  "teamNumber": 9,
+  "projectName": "Eco Brawl",
+  "projectType": "Web Game",
+  "description": "A boss battle/quiz game called 'The High-Voltage Quiz' where players navigate a world map and fight environmental 'bosses' in quiz battles. Features an overworld map with interactive points, character movement, camera panning, and level-based platformer gameplay (Solar Wasteland level). Includes environmental themes about energy and sustainability.",
+  "technologies": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "Canvas API"
+  ],
+  "logo": "Team 9/eco brawl web version/images/logo.png",
+  "teamMembers": null,
+  "additionalFiles": [
+    "Eco_Brawl__AI_for_Nature.mp4",
+    "trailer.mp4",
+    "Grupperapport.docx",
+    "eco brawl concept breakdown.docx"
+  ],
+  "folderPath": "Team 9/eco brawl web version/"
+}

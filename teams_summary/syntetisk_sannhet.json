@@ -1,0 +1,19 @@
+{
+  "teamNumber": 12,
+  "projectName": "Syntetisk Sannhet",
+  "projectType": "Video/Documentary Project",
+  "description": "A documentary/video project titled 'Synthetic Truth'. The project explores themes through video production rather than a traditional application or website.",
+  "technologies": [
+    "Video production"
+  ],
+  "logo": null,
+  "teamMembers": null,
+  "additionalFiles": [
+    "dokumentar.mp4",
+    "syntetisk sannhet ferdig1.mov",
+    "syntetisk sannhet trailer ferdig1.mov",
+    "Prosjektplan.docx",
+    "rapport.docx"
+  ],
+  "folderPath": "Team 12/"
+}

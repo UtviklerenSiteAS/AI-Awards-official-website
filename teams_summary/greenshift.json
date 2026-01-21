@@ -1,0 +1,23 @@
+{
+  "teamNumber": 15,
+  "projectName": "GreenShift",
+  "projectType": "Web Application (React)",
+  "description": "A comprehensive sustainability lifestyle app with multiple features: Transport calculator/route planner with CO2 emissions, personal impact tracking with XP/leveling system, global leaderboard, 1v1 duels, group challenges, weekly challenges, habit tracking (food/energy/lifestyle/consumption categories), knowledge bank, daily quiz, bilingual support (Norwegian/English). Beautiful modern UI with dark/light themes.",
+  "technologies": [
+    "React 19",
+    "Vite 7",
+    "Tailwind CSS",
+    "PostCSS",
+    "Lucide React icons"
+  ],
+  "logo": "Team 15/ai prosjekt/GreenShift codes/public/vite.svg",
+  "teamMembers": null,
+  "additionalFiles": [
+    "GreenShift rapport.docx",
+    "GreenShift__Koden_for_en_Grønnere_Reise.mp4",
+    "Prosjektplan.docx",
+    "reklamevideogreenshift.mp4",
+    "Nettside link.txt"
+  ],
+  "folderPath": "Team 15/ai prosjekt/GreenShift codes/"
+}

@@ -1,0 +1,26 @@
+{
+  "teamNumber": 14,
+  "projectName": "Rødlistet",
+  "projectType": "Interactive Web Game with Map",
+  "description": "An educational game about endangered species in Agder, Norway titled 'Red Listed - Survival with AI Guardian'. Features a Leaflet map with interactive animal points, an AI chatbot 'Naturens Vokter' (Nature's Guardian) that answers questions about local nature and animals, day/streak system, nature health bar, achievements, leaderboard, difficulty selection, and satellite/standard map toggle. Includes 400+ animal images for the species database.",
+  "technologies": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "Leaflet.js",
+    "Google Fonts (Montserrat)",
+    "AI chatbot integration",
+    "PowerShell scripts for data download"
+  ],
+  "logo": "Team 14/rødlistet/backup1/images/logo.png",
+  "teamMembers": null,
+  "additionalFiles": [
+    "AI_for_Sustainability.mp4",
+    "AI_RØDLISTET_ADVERTISEMENT.mp4",
+    "Grupperapport.docx",
+    "Logg AI.docx",
+    "Prosjektplan.xlsx",
+    "spillet rødlistet.docx"
+  ],
+  "folderPath": "Team 14/rødlistet/backup1/"
+}

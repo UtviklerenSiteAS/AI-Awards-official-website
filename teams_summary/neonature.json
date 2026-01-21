@@ -1,0 +1,23 @@
+{
+  "teamNumber": 13,
+  "projectName": "NeoNature",
+  "projectType": "Website with Interactive Map",
+  "description": "A nature tracking website focused on wild Norwegian animals. Features include a hero section with wolf imagery, map integration (GeoJSON data), store/shop functionality, and QR code scanning capability. Norwegian language interface for tracking and learning about local wildlife.",
+  "technologies": [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "FontAwesome",
+    "html5-qrcode library",
+    "GeoJSON"
+  ],
+  "logo": null,
+  "teamMembers": null,
+  "additionalFiles": [
+    "Produksjonsplan Ai.docx",
+    "Rapport AI Uke.pdf",
+    "Ai Videoer/",
+    "Bilder/"
+  ],
+  "folderPath": "Team 13/Ai prosjekt/"
+}

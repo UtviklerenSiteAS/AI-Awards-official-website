@@ -1,0 +1,29 @@
+{
+  "teamNumber": 1,
+  "projectName": "Eco Friend",
+  "projectType": "Mobile App",
+  "description": "A sustainable fashion app that uses AI (Google Gemini) to scan garments and analyze their environmental impact. Features include Smart Scanner for image analysis, Eco-Score (1-10 sustainability rating), material analysis, scan history, and an integrated green map showing eco-friendly stores using Norkart/Kartverket data.",
+  "technologies": [
+    "React Native",
+    "Expo",
+    "TypeScript",
+    "Google Gemini AI API",
+    "react-native-maps",
+    "expo-camera",
+    "expo-location"
+  ],
+  "logo": null,
+  "teamMembers": [
+    { "name": "Elias", "role": "Project Leader" },
+    { "name": "Benjamin", "role": "Producer/Tech" },
+    { "name": "Daniel", "role": "Marketing" },
+    { "name": "Simen", "role": "Creative" },
+    { "name": "Iselin", "role": "Creative" }
+  ],
+  "additionalFiles": [
+    "Prosjektplan Eco Friend.txt",
+    "Media/Eco-Friend.mp4",
+    "Media/Eco_Friend__Bærekraftig_mote.mp4"
+  ],
+  "folderPath": "Team 1/Eco-friend/"
+}

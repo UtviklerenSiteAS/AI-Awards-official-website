@@ -1,0 +1,29 @@
+{
+  "teamNumber": 3,
+  "projectName": "NÆR / N.A.B.O",
+  "projectType": "Web App (PWA) + Company Website",
+  "description": "NÆR App is a youth participation web app with communities, chat, map-based proposals, swipe voting (Tinder-style), gamification (XP system, levels, rewards), and admin tools. AI features include community matching, proposal improvement, swipe card analysis, and content moderation. N.A.B.O Website is a corporate website for Next-Gen AI Tech Solutions focused on people-centered innovation for neighborhoods and local communities.",
+  "technologies": [
+    "React 19",
+    "Vite 7",
+    "Firebase (Auth/Firestore/Storage)",
+    "Leaflet/React-Leaflet",
+    "Google Gemini AI",
+    "PWA/Workbox",
+    "Vitest"
+  ],
+  "logo": "Team 3/N.A.B.O-nettside/assets/images/logo.png",
+  "teamMembers": [
+    { "name": "Carsten", "role": null },
+    { "name": "Fabian", "role": null },
+    { "name": "Jesper", "role": null },
+    { "name": "Lars", "role": null },
+    { "name": "Victor", "role": null }
+  ],
+  "additionalFiles": [
+    "video-nær.mp4",
+    "Production plan and budget documents",
+    "README.md"
+  ],
+  "folderPath": "Team 3/"
+}

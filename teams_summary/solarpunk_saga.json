@@ -1,0 +1,21 @@
+{
+  "teamNumber": 8,
+  "projectName": "Solarpunk Saga",
+  "projectType": "Video Game (Godot Engine)",
+  "description": "A 2D platformer game built with Godot Engine 4.5. Features player movement (left/right), jumping, and attack mechanics. Mobile-optimized rendering. Set in a 'solarpunk' aesthetic theme promoting sustainable futures.",
+  "technologies": [
+    "Godot Engine 4.5",
+    "GDScript",
+    "GDShader",
+    "Mobile rendering"
+  ],
+  "logo": "Team 8/Gruppe_8/solarpunk_saga_prosjekt/icon.svg",
+  "teamMembers": null,
+  "additionalFiles": [
+    "15sekunder.mp4",
+    "AI-spill_for_Brekraft.mp4",
+    "Plan.docx",
+    "Prosessdokumentasjon.docx"
+  ],
+  "folderPath": "Team 8/Gruppe_8/solarpunk_saga_prosjekt/"
+}
