@@ -1,0 +1,1 @@
+This is the oficial repository for Tangen High School's AI Awords webside. 
