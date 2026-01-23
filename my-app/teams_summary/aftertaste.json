@@ -2,14 +2,20 @@
   "teamNumber": 5,
   "projectName": "AFTERTASTE",
   "projectType": "Interactive Web Experience / Visual Novel",
-  "description": "A cinematic, scroll-based interactive story set in Kristiansand, Norway 2075. The narrative follows a character in a 'perfect' utopian society who discovers unsettling truths when they miss their daily medication. Features scene chronology with images, videos, text, glitch effects, and audio. A dystopian/utopian exploration story about sustainability and societal control.",
+  "description": "Engages youth with complex sustainability themes through interactive storytelling. Set in Kristiansand 2075, explores the consequences of extreme environmental control and societal sacrifice for sustainability. Prompts critical thinking about climate solutions, freedom, and the price of a 'perfect' world following the fictional 'Transition of 2031' crisis. Provides thought-provoking narrative that questions what we're willing to sacrifice for environmental protection. Targets UN SDG 13 (Climate Action through critical examination), SDG 16 (Peace, Justice and Strong Institutions), and SDG 4 (Quality Education).",
   "technologies": [
     "React 19",
     "Vite 7",
     "Custom scene/audio system"
   ],
   "logo": "Team 5/AFTERTASTE/public/aftertaste-logo.png",
-  "teamMembers": null,
+  "teamMembers": [
+    { "name": "Dana", "role": null },
+    { "name": "Nell", "role": null },
+    { "name": "Yusup", "role": null },
+    { "name": "Nailie Kerimova", "role": null },
+    { "name": "Artem Ktitor", "role": null }
+  ],
   "additionalFiles": [
     "ADD VIDEO.mp4",
     "Making_of__Aftertaste_.mp4",

@@ -2,7 +2,7 @@
   "teamNumber": 8,
   "projectName": "Solarpunk Saga",
   "projectType": "Video Game (Godot Engine)",
-  "description": "A 2D platformer game built with Godot Engine 4.5. Features player movement (left/right), jumping, and attack mechanics. Mobile-optimized rendering. Set in a 'solarpunk' aesthetic theme promoting sustainable futures.",
+  "description": "Provides hopeful alternative to climate dystopia narratives through an engaging 2D platformer game. Promotes solarpunk aesthetic (optimistic sustainable futures) and reaches youth with sustainability messages through gaming. Presents positive vision of environmentally conscious society and promotes creative thinking about sustainable futures. Targets UN SDG 13 (Climate Action), SDG 11 (Sustainable Cities and Communities), and SDG 7 (Affordable and Clean Energy).",
   "technologies": [
     "Godot Engine 4.5",
     "GDScript",
@@ -10,7 +10,13 @@
     "Mobile rendering"
   ],
   "logo": "Team 8/Gruppe_8/solarpunk_saga_prosjekt/icon.svg",
-  "teamMembers": null,
+  "teamMembers": [
+    { "name": "Sivert", "role": null },
+    { "name": "Herman", "role": null },
+    { "name": "Jordi", "role": null },
+    { "name": "Mattias", "role": null },
+    { "name": "Mads Gilbert Henriksen", "role": null }
+  ],
   "additionalFiles": [
     "15sekunder.mp4",
     "AI-spill_for_Brekraft.mp4",
