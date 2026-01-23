@@ -142,7 +142,7 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
                         {otherTeams.map((team) => (
                             <div
                                 key={team.teamNumber}
-                                className={`${team.teamNumber === 12 ? 'h-[400px]' : 'h-[250px]'} flex-1 min-w-[280px]`}
+                                className={`h-[250px] ${(team.teamNumber === 12) ? 'md:h-[400px] lg:h-[250px] xl:h-[400px] 2xl:h-[250px]' : ''} flex-1 min-w-[280px]`}
                             >
                                 <WinnerCard
                                     rank={team.teamNumber}
