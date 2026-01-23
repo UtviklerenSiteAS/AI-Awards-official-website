@@ -28,6 +28,12 @@ export default function Navbar() {
                     Teams
                 </Link>
                 <Link
+                    href="/projects"
+                    className={isActive("/projects") ? activeClass : inactiveClass}
+                >
+                    Projects
+                </Link>
+                <Link
                     href="/faq"
                     className={isActive("/faq") ? activeClass : inactiveClass}
                 >
