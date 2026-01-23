@@ -18,6 +18,7 @@ interface ProjectData {
     price?: string;
     imageSrc?: string;
     goat?: boolean;
+    promotionalVideo?: string;
 }
 
 export default function ProjectCatalog({ projects }: { projects: ProjectData[] }) {
@@ -141,6 +142,23 @@ export default function ProjectCatalog({ projects }: { projects: ProjectData[] }
                                         {selectedProject.description}
                                     </p>
                                 </div>
+
+                                {/* Promotional Video */}
+                                {selectedProject.promotionalVideo && (
+                                    <div className="w-full">
+                                        <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Project Trailer</h4>
+                                        <div className="relative aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10">
+                                            <video
+                                                src={selectedProject.promotionalVideo.replace('../', '/media/')}
+                                                controls
+                                                className="w-full h-full"
+                                                poster={selectedProject.imageSrc}
+                                            >
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </div>
+                                    </div>
+                                )}
 
                                 {/* Tech Stack */}
                                 {selectedProject.technologies && (
