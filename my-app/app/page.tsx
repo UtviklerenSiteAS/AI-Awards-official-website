@@ -19,7 +19,7 @@ export default function Home() {
     // Stage 2: Move text down and show orb (after 2 seconds)
     setTimeout(() => {
       setAnimationStage('final');
-    }, 2500);
+    }, 1200);
   }, []);
 
   // Video fade loop effect
