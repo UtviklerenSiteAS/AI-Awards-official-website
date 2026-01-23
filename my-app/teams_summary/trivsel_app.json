@@ -2,7 +2,7 @@
   "teamNumber": 2,
   "projectName": "Trivsel App",
   "projectType": "Mobile App",
-  "description": "An environmental awareness app that shows real-time data on Traffic Noise, Air Quality, and Green Areas. Features AI-powered future predictions (5-50 years) using Google Gemini, a Time Travel Simulator timeline slider, comprehensive environmental metrics, and a modern glassmorphism UI design. Provides Trivsel Score (well-being score) for locations.",
+  "description": "Addresses lack of accessible environmental data about local neighborhoods by providing real-time insights on traffic noise, air quality, and green areas. Uses AI to predict environmental changes 5-50 years into the future, helping communities plan for sustainable urban development. Empowers citizens with a 'Trivsel Score' (well-being score) to make informed decisions about where to live. Targets UN SDG 11 (Sustainable Cities and Communities), SDG 13 (Climate Action), and SDG 3 (Good Health and Well-being).",
   "technologies": [
     "React Native",
     "Expo",
@@ -14,7 +14,13 @@
     "react-native-reanimated"
   ],
   "logo": null,
-  "teamMembers": null,
+  "teamMembers": [
+    { "name": "Elias A.", "role": null },
+    { "name": "Jens", "role": null },
+    { "name": "Benjamin S.", "role": null },
+    { "name": "Daniel H.", "role": null },
+    { "name": "Theodor Hjort", "role": null }
+  ],
   "additionalFiles": [
     "Preview.mp4",
     "Rapport.pdf",

@@ -2,10 +2,19 @@
   "teamNumber": 17,
   "projectName": "Vision Shift",
   "projectType": "External Web Application",
-  "description": "A project exploring 'Potential and Paradoxes' of AI. The actual application is hosted externally with the link provided in documentation. The project discusses AI for sustainability themes.",
-  "technologies": [],
+  "description": "Examines 'Potential and Paradoxes' of AI, exploring how artificial intelligence can both help and complicate sustainability efforts. Promotes critical thinking about AI technology, examines societal implications, and explores ethical dimensions of technological progress in sustainability context. Targets UN SDG 9 (Industry, Innovation and Infrastructure), SDG 13 (Climate Action), and SDG 4 (Quality Education).",
+  "technologies": [
+    "Web Application (External)"
+  ],
   "logo": null,
-  "teamMembers": null,
+  "teamMembers": [
+    { "name": "Heorhii Ad.", "role": null },
+    { "name": "Anton", "role": null },
+    { "name": "Munib", "role": null },
+    { "name": "Kacper", "role": null },
+    { "name": "Arn", "role": null },
+    { "name": "Leander", "role": null }
+  ],
   "additionalFiles": [
     "Dokumentar.mp4",
     "Grupperapport_ Prosjekt Vision Shift - Potensial og Paradokser.pdf",

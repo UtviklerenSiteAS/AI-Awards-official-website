@@ -2,10 +2,27 @@
   "teamNumber": 4,
   "projectName": "EcoTrace",
   "projectType": "Mobile App",
-  "description": "An AI-powered environmental tracking app. The project plan mentions 'From Concept to National Scaling', indicating ambitions for wider deployment. Details available in the rapport and pitch presentation.",
-  "technologies": [],
+  "description": "Addresses the lack of accessible tools for tracking personal environmental impact. Features AI assistant 'Jo' that provides personalized guidance for reducing carbon footprint through multimodal interactions (voice, text, image). Gamifies sustainable behaviors with streaks and duels to encourage adoption. Aims to scale from personal to national environmental impact awareness. Targets UN SDG 13 (Climate Action), SDG 12 (Responsible Consumption and Production), and SDG 4 (Quality Education).",
+  "technologies": [
+    "Python",
+    "Google Gemini 2.5 Flash",
+    "Live2D",
+    "SenseVoice (ASR)",
+    "Piper TTS",
+    "React Native",
+    "Expo",
+    "Supabase",
+    "Google Maps",
+    "Sherpa-ONNX"
+  ],
   "logo": "Team 4/drive-download-20260114T095724Z-1-001/AI-Teammedlem-main/logo.png",
-  "teamMembers": null,
+  "teamMembers": [
+    { "name": "John Kevin", "role": null },
+    { "name": "Cornelius", "role": null },
+    { "name": "Ludvik", "role": null },
+    { "name": "Andreas", "role": null },
+    { "name": "Alexander Jonathan Lid Nilsen", "role": null }
+  ],
   "additionalFiles": [
     "Ecotrace rapport.pdf",
     "ScreenRecording video",
