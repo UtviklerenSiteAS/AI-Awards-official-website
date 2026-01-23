@@ -11,13 +11,13 @@ export default function Navbar() {
                     Home
                 </Link>
                 <Link
-                    href="#teams"
+                    href="/teams"
                     className="text-gray-400 hover:text-white transition-colors"
                 >
                     Teams
                 </Link>
                 <Link
-                    href="#faq"
+                    href="/faq"
                     className="text-gray-400 hover:text-white transition-colors"
                 >
                     FAQ

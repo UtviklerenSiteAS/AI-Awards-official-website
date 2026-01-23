@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "AI-AWARDS 2026",
+  title: "AI-Awards 2026",
   description: "The future of AI recognition.",
 };
 
