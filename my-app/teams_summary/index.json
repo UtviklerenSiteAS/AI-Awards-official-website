@@ -24,7 +24,8 @@
       "teamNumber": 3,
       "projectName": "NÆR / N.A.B.O",
       "file": "naer_nabo.json",
-      "price": "The GOAT",
+      "price": "The best AD",
+      "goat": true,
       "imageSrc": "/media/Bilder/team3.jpg"
     },
     {

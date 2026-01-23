@@ -9,6 +9,7 @@ interface TeamEntry {
     file: string;
     price?: string;
     imageSrc?: string;
+    goat?: boolean;
 }
 
 export default async function Projects() {

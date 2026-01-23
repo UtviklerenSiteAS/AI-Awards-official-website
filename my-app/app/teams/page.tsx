@@ -8,6 +8,7 @@ interface TeamEntry {
     projectName: string;
     file: string;
     price?: string;
+    goat?: boolean;
 }
 
 export default async function Teams() {

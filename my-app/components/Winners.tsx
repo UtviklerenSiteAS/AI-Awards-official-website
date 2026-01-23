@@ -7,6 +7,7 @@ export interface TeamData {
     description: string;
     price?: string; // The award name
     imageSrc?: string; // Path to team image
+    goat?: boolean; // If they are the GOAT
     // Add other fields if needed
 }
 
@@ -16,9 +17,10 @@ interface WinnerCardProps {
     rank: number;
     imageSrc: string;
     className?: string;
+    goat?: boolean;
 }
 
-const WinnerCard = ({ teamName, category, rank, imageSrc, className = "" }: WinnerCardProps) => {
+const WinnerCard = ({ teamName, category, rank, imageSrc, className = "", goat }: WinnerCardProps) => {
     const isPodium = rank <= 3;
 
     // Updated Badge Style logic
@@ -56,7 +58,10 @@ const WinnerCard = ({ teamName, category, rank, imageSrc, className = "" }: Winn
                     </div>
 
                     <div className="flex flex-col">
-                        <span className="text-white font-bold text-lg md:text-xl tracking-wide leading-tight">{teamName}</span>
+                        <div className="flex items-center gap-2">
+                            <span className="text-white font-bold text-lg md:text-xl tracking-wide leading-tight">{teamName}</span>
+                            {goat && <span className="text-xl">🐐</span>}
+                        </div>
                         <span className="text-gray-400 text-sm md:text-base font-medium">{category}</span>
                     </div>
                 </div>
@@ -103,6 +108,7 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
                             teamName={team1.projectName}
                             category={team1.price || team1.projectType}
                             imageSrc={team1.imageSrc || "/alle-vinner.jpg"}
+                            goat={team1.goat}
                             className="w-full h-full"
                         />
                     )}
@@ -117,6 +123,7 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
                                 teamName={team2.projectName}
                                 category={team2.price || team2.projectType}
                                 imageSrc={team2.imageSrc || "/alle-vinner.jpg"}
+                                goat={team2.goat}
                                 className="w-full h-full"
                             />
                         )}
@@ -128,6 +135,7 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
                                 teamName={team3.projectName}
                                 category={team3.price || team3.projectType}
                                 imageSrc={team3.imageSrc || "/alle-vinner.jpg"}
+                                goat={team3.goat}
                                 className="w-full h-full"
                             />
                         )}
@@ -149,6 +157,7 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
                                     teamName={team.projectName}
                                     category={team.price || team.projectType}
                                     imageSrc={team.imageSrc || "/alle-vinner.jpg"}
+                                    goat={team.goat}
                                     className="w-full h-full"
                                 />
                             </div>

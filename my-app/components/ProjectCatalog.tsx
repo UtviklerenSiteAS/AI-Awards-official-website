@@ -17,6 +17,7 @@ interface ProjectData {
     teamMembers?: TeamMember[];
     price?: string;
     imageSrc?: string;
+    goat?: boolean;
 }
 
 export default function ProjectCatalog({ projects }: { projects: ProjectData[] }) {
@@ -43,6 +44,20 @@ export default function ProjectCatalog({ projects }: { projects: ProjectData[] }
                         ) : (
                             <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-60 group-hover:opacity-40" />
                         )}
+
+                        {/* Top-right Winner Badges */}
+                        <div className="absolute top-4 right-4 z-10 flex gap-2">
+                            {project.goat && (
+                                <div className="w-10 h-10 rounded-full bg-purple-500/20 backdrop-blur-md border border-purple-500/30 flex items-center justify-center shadow-lg" title="The GOAT">
+                                    <span className="text-lg">🐐</span>
+                                </div>
+                            )}
+                            {project.price && (
+                                <div className="w-10 h-10 rounded-full bg-yellow-500/20 backdrop-blur-md border border-yellow-500/30 flex items-center justify-center shadow-lg" title={project.price}>
+                                    <span className="text-lg">🏆</span>
+                                </div>
+                            )}
+                        </div>
 
                         {/* Content Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent p-6 flex flex-col justify-end">
@@ -104,13 +119,18 @@ export default function ProjectCatalog({ projects }: { projects: ProjectData[] }
                             {/* Right Side: Details */}
                             <div className="w-full md:w-3/5 p-8 md:p-12 flex flex-col gap-6">
                                 <div>
-                                    <div className="flex items-center gap-3 mb-2">
+                                    <div className="flex items-center gap-3 mb-2 flex-wrap">
                                         <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-wide border border-blue-500/30">
                                             {selectedProject.projectType}
                                         </span>
                                         {selectedProject.price && (
                                             <span className="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-300 text-xs font-bold uppercase tracking-wide border border-yellow-500/30">
                                                 🏆 {selectedProject.price}
+                                            </span>
+                                        )}
+                                        {selectedProject.goat && (
+                                            <span className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold uppercase tracking-wide border border-purple-500/30">
+                                                🐐 The GOAT
                                             </span>
                                         )}
                                     </div>
