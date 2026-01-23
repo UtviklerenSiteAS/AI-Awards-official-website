@@ -40,7 +40,7 @@ export default function ProjectCatalog({ projects }: { projects: ProjectData[] }
                                 src={project.imageSrc}
                                 alt={project.projectName}
                                 fill
-                                className="object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-300"
+                                className="object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-300 scale-110"
                             />
                         ) : (
                             <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black opacity-60 group-hover:opacity-40" />

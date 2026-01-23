@@ -50,7 +50,7 @@ export default async function Projects() {
             {/* Background Glow - Matches other pages */}
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-            <div className="relative z-10 pt-32 px-4 container mx-auto flex flex-col items-center">
+            <div className="relative z-10 pt-32 px-4 w-full max-w-7xl mx-auto flex flex-col">
                 <h1 className="text-5xl md:text-7xl font-black text-white tracking-tight mb-4">
                     PROJECTS
                 </h1>
