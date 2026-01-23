@@ -1,75 +1,161 @@
 import Image from "next/image";
 
-export default function Winners() {
+export interface TeamData {
+    teamNumber: number;
+    projectName: string;
+    projectType: string; // Used as category
+    description: string;
+    price?: string; // The award name
+    imageSrc?: string; // Path to team image
+    // Add other fields if needed
+}
+
+interface WinnerCardProps {
+    teamName: string;
+    category: string;
+    rank: number;
+    imageSrc: string;
+    className?: string;
+}
+
+const WinnerCard = ({ teamName, category, rank, imageSrc, className = "" }: WinnerCardProps) => {
+    const isPodium = rank <= 3;
+
+    // Updated Badge Style logic
+    const badgeStyle = rank === 1
+        ? "bg-gradient-to-br from-yellow-300 to-yellow-600 shadow-[0_0_15px_rgba(234,179,8,0.6)]"
+        : rank === 2
+            ? "bg-gradient-to-br from-gray-200 to-gray-500 shadow-[0_0_15px_rgba(209,213,219,0.5)]"
+            : rank === 3
+                ? "bg-gradient-to-br from-amber-400 to-amber-700 shadow-[0_0_15px_rgba(180,83,9,0.5)]"
+                : "bg-white/10 border-white/5 text-gray-300 shadow-lg backdrop-blur-md"; // Neutral for others
+
     return (
-        <section className="h-screen w-full flex flex-col items-center justify-center bg-black text-white relative overflow-hidden">
-            {/* Title */}
-            <h2 className="text-4xl md:text-5xl font-bold mb-12 tracking-wide text-transparent drop-shadow-[0_0_15px_rgba(234,179,8,0.5)]">
-                <span className="bg-gradient-to-r from-orange-300 via-yellow-500 to-orange-300 bg-clip-text">
-                    Winners-2026
-                </span>
-                <span className="ml-4 text-white drop-shadow-none filter-none">🏆</span>
-            </h2>
+        <div className={`relative group rounded-[2.5rem] overflow-hidden border border-white/10 ${className}`}>
+            {/* Background Image */}
+            <Image
+                src={imageSrc}
+                alt={teamName}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
 
-            <div className="flex w-full max-w-7xl items-start justify-between px-4 md:px-12">
-                {/* Left Column: Winners List */}
-                <div className="flex flex-col items-center gap-6 text-xl md:text-2xl font-semibold text-gray-200">
-                    <h3 className="text-orange-400 text-3xl font-bold mb-4 drop-shadow-md">Winners</h3>
-                    <span className="hover:text-white transition-colors cursor-default">Team 1</span>
-                    <span className="hover:text-white transition-colors cursor-default">Team 1</span>
-                    <span className="hover:text-white transition-colors cursor-default">Team 4</span>
-                    <span className="hover:text-white transition-colors cursor-default">Team 7</span>
-                    <span className="hover:text-white transition-colors cursor-default">Team 1</span>
-                    <span className="hover:text-white transition-colors cursor-default">Team 1</span>
-                    <span className="hover:text-white transition-colors cursor-default">Team 1</span>
-                </div>
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent transition-opacity duration-300"></div>
 
-                {/* Center: Main Image */}
-                <div className="relative group mx-8 mt-2 flex items-center justify-center">
-                    {/* Glow effect behind image */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-gray-600 to-gray-400 rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+            {/* Content Container - Always visible */}
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 flex items-end justify-between transition-opacity duration-300">
 
-                    {/* Adjusted container to wrap image tightly */}
-                    <div className="relative rounded-3xl overflow-hidden border-4 border-gray-800 shadow-[0_0_50px_rgba(255,255,255,0.1)] w-auto h-auto max-w-[800px] max-h-[500px]">
-                        <Image
-                            src="/alle-vinner.jpg"
-                            alt="Winners 2026 Team Photo"
-                            width={800}
-                            height={450}
-                            className="w-auto h-auto max-w-full max-h-full"
-                        />
-                        {/* Inner Vignette */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                {/* Left: Avatar + Info */}
+                <div className="flex items-center gap-4">
+                    {/* Rank Circle */}
+                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full p-[2px] shrink-0 bg-white/20">
+                        <div className="w-full h-full rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-sm md:text-base font-bold text-white">
+                            {rank}
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col">
+                        <span className="text-white font-bold text-lg md:text-xl tracking-wide leading-tight">{teamName}</span>
+                        <span className="text-gray-400 text-sm md:text-base font-medium">{category}</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    );
+};
 
-                {/* Right Column: GOAT */}
-                <div className="flex flex-col items-center gap-6 text-xl md:text-2xl font-semibold text-gray-200">
-                    <h3 className="text-purple-500 text-3xl font-bold mb-4 drop-shadow-[0_0_10px_rgba(168,85,247,0.8)]">GOAT</h3>
-                    <span className="hover:text-white transition-colors cursor-default">Team 3</span>
+export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
+    // Filter teams that have a price (award)
+    const winningTeams = teams
+        .filter(t => t.price)
+        .sort((a, b) => a.teamNumber - b.teamNumber);
+
+    // Top 3 for Podium (First 3 from the filtered list)
+    const team1 = winningTeams[0];
+    const team2 = winningTeams[1];
+    const team3 = winningTeams[2];
+
+    // Rest of the teams
+    const otherTeams = winningTeams.slice(3);
+
+    return (
+        <section className="min-h-screen w-full flex flex-col items-start relative overflow-hidden py-2 px-4 md:px-20 pb-20">
+            {/* Title Header matching Frame 6 */}
+            <div className="flex flex-col items-start mb-8 w-full">
+                <h1 className="text-6xl md:text-8xl font-black text-white tracking-tight mb-2">
+                    AI-AWARDS
+                </h1>
+                <div className="flex items-center gap-3 text-2xl md:text-3xl font-medium">
+                    <span className="bg-gradient-to-r from-[#B2A7E7] via-[#93BBE7] to-[#4D8EC3] bg-clip-text text-transparent font-bold">2026</span>
+                    <span className="bg-gradient-to-r from-[#FDAD4D] via-[#FEF974] to-[#E97F41] bg-clip-text text-transparent font-bold">winners</span>
+                    <span className="text-2xl">🏆</span>
                 </div>
             </div>
 
-            {/* Scroll Down Indicator (Optional, maybe reused or different for this section) */}
-            <div className="absolute bottom-12 flex flex-col items-center gap-2 animate-bounce opacity-70">
-                <span className="text-xs uppercase tracking-widest font-medium text-gray-400">
-                    Scroll down
-                </span>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={2}
-                    stroke="currentColor"
-                    className="w-6 h-6 text-white"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                    />
-                </svg>
+            {/* Gallery Grid - Left Big, Right Stacked */}
+            <div className="w-full max-w-7xl h-auto md:h-[400px] grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                {/* Left Column: 1st Place */}
+                <div className="md:col-span-2 h-[300px] md:h-full">
+                    {team1 && (
+                        <WinnerCard
+                            rank={team1.teamNumber}
+                            teamName={team1.projectName}
+                            category={team1.price || team1.projectType}
+                            imageSrc={team1.imageSrc || "/alle-vinner.jpg"}
+                            className="w-full h-full"
+                        />
+                    )}
+                </div>
+
+                {/* Right Column: 2nd & 3rd Place */}
+                <div className="flex flex-col gap-6 h-[400px] md:h-full">
+                    <div className="flex-1">
+                        {team2 && (
+                            <WinnerCard
+                                rank={team2.teamNumber}
+                                teamName={team2.projectName}
+                                category={team2.price || team2.projectType}
+                                imageSrc={team2.imageSrc || "/alle-vinner.jpg"}
+                                className="w-full h-full"
+                            />
+                        )}
+                    </div>
+                    <div className="flex-1">
+                        {team3 && (
+                            <WinnerCard
+                                rank={team3.teamNumber}
+                                teamName={team3.projectName}
+                                category={team3.price || team3.projectType}
+                                imageSrc={team3.imageSrc || "/alle-vinner.jpg"}
+                                className="w-full h-full"
+                            />
+                        )}
+                    </div>
+                </div>
             </div>
+
+            {/* Other Teams Section */}
+            {otherTeams.length > 0 && (
+                <div className="w-full max-w-7xl animate-fade-in-up">
+                    <div className="flex flex-wrap gap-6">
+                        {otherTeams.map((team) => (
+                            <div
+                                key={team.teamNumber}
+                                className={`${team.teamNumber === 12 ? 'h-[400px]' : 'h-[250px]'} flex-1 min-w-[280px]`}
+                            >
+                                <WinnerCard
+                                    rank={team.teamNumber}
+                                    teamName={team.projectName}
+                                    category={team.price || team.projectType}
+                                    imageSrc={team.imageSrc || "/alle-vinner.jpg"}
+                                    className="w-full h-full"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
