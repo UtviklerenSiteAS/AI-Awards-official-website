@@ -50,7 +50,7 @@ export default function FAQ() {
                         FAQ
                     </h1>
                     <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light">
-                        Ofte stilte spørsmål om arrangementet, påmelding og alt du lurer på.
+                        Frequently Asked Questions about the event
                     </p>
                 </div>
 
