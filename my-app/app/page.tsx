@@ -26,7 +26,7 @@ export default function Home() {
     // Stage 3: Show Light Rays (after text settles)
     setTimeout(() => {
       setShowLightRays(true);
-    }, 2500);
+    }, 2000);
   }, []);
 
   // Video fade loop effect
@@ -68,7 +68,7 @@ export default function Home() {
         <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none transition-opacity duration-1000 delay-500 ${animationStage === 'final' ? 'opacity-100' : 'opacity-0'}`}></div>
 
         {/* Light Rays Animation - Appears after everything settles */}
-        <div className={`absolute inset-0 pointer-events-none transition-opacity duration-2000 ease-in-out z-0 ${showLightRays ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`absolute inset-0 pointer-events-none transition-opacity duration-[3000ms] ease-in-out z-0 ${showLightRays ? 'opacity-100' : 'opacity-0'}`}>
           <LightRays
             raysOrigin="top-center"
             raysColor="#4D8EC3"
