@@ -3,10 +3,12 @@
 import { useState, useEffect, useRef } from 'react';
 import Navbar from "@/components/Navbar";
 import Winners from "@/components/Winners";
+import LightRays from "@/components/LightRays";
 
 export default function Home() {
   const [videoOpacity, setVideoOpacity] = useState(1);
   const [animationStage, setAnimationStage] = useState<'initial' | 'text-visible' | 'final'>('initial');
+  const [showLightRays, setShowLightRays] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Intro Animation Sequence
@@ -20,6 +22,11 @@ export default function Home() {
     setTimeout(() => {
       setAnimationStage('final');
     }, 1200);
+
+    // Stage 3: Show Light Rays (after text settles)
+    setTimeout(() => {
+      setShowLightRays(true);
+    }, 2500);
   }, []);
 
   // Video fade loop effect
@@ -59,6 +66,20 @@ export default function Home() {
       <section className="h-screen w-full snap-start flex flex-col items-center justify-center relative overflow-hidden">
         {/* Background Glow - fades in at final stage */}
         <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none transition-opacity duration-1000 delay-500 ${animationStage === 'final' ? 'opacity-100' : 'opacity-0'}`}></div>
+
+        {/* Light Rays Animation - Appears after everything settles */}
+        <div className={`absolute inset-0 pointer-events-none transition-opacity duration-2000 ease-in-out z-0 ${showLightRays ? 'opacity-100' : 'opacity-0'}`}>
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#4D8EC3"
+            raysSpeed={0.5}
+            lightSpread={0.2}
+            rayLength={1.5}
+            followMouse={true}
+            mouseInfluence={0.05}
+            className="w-full h-full"
+          />
+        </div>
 
         <div className="relative z-10 flex flex-col items-center text-center">
 
