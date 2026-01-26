@@ -19,6 +19,8 @@ interface ProjectData {
     imageSrc?: string;
     goat?: boolean;
     promotionalVideo?: string;
+    projectUrl?: string;
+    folderPath?: string;
 }
 
 export default function ProjectCatalog({ projects }: { projects: ProjectData[] }) {
@@ -142,6 +144,21 @@ export default function ProjectCatalog({ projects }: { projects: ProjectData[] }
                                         {selectedProject.description}
                                     </p>
                                 </div>
+
+                                {/* Promotional Video */}
+                                {(selectedProject.folderPath || selectedProject.projectUrl) && (
+                                    <div className="w-full mb-6">
+                                        <a
+                                            href={selectedProject.projectUrl || `/${selectedProject.folderPath?.replace(/^\//, '')}index.html`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02] shadow-lg shadow-blue-900/20"
+                                        >
+                                            <span>🌍</span>
+                                            VISIT PROJECT WEBSITE
+                                        </a>
+                                    </div>
+                                )}
 
                                 {/* Promotional Video */}
                                 {selectedProject.promotionalVideo && (
