@@ -71,9 +71,14 @@ const WinnerCard = ({ teamName, category, rank, imageSrc, className = "", goat }
 };
 
 export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
-    // Filter teams that have a price (award)
+    // Filter teams that have a price (award) - these are the WINNERS
     const winningTeams = teams
         .filter(t => t.price)
+        .sort((a, b) => a.teamNumber - b.teamNumber);
+
+    // Filter teams that DON'T have a price - these are the OTHERS (non-winners)
+    const otherTeams = teams
+        .filter(t => !t.price)
         .sort((a, b) => a.teamNumber - b.teamNumber);
 
     // Top 3 for Podium (First 3 from the filtered list)
@@ -81,8 +86,8 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
     const team2 = winningTeams[1];
     const team3 = winningTeams[2];
 
-    // Rest of the teams
-    const otherTeams = winningTeams.slice(3);
+    // Rest of the winning teams (4th place onwards)
+    const restOfWinners = winningTeams.slice(3);
 
     return (
         <section className="min-h-screen w-full flex flex-col items-start relative overflow-hidden py-2 px-4 md:px-20 pb-20">
@@ -143,14 +148,45 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
                 </div>
             </div>
 
-            {/* Other Teams Section */}
-            {otherTeams.length > 0 && (
+            {/* Rest of Winners (4th place onwards) */}
+            {restOfWinners.length > 0 && (
                 <div className="w-full max-w-7xl animate-fade-in-up">
                     <div className="flex flex-wrap gap-6">
-                        {otherTeams.map((team) => (
+                        {restOfWinners.map((team) => (
                             <div
                                 key={team.teamNumber}
                                 className={`h-[250px] ${(team.teamNumber === 12) ? 'md:h-[400px] lg:h-[250px] xl:h-[400px] 2xl:h-[250px]' : ''} flex-1 min-w-[280px]`}
+                            >
+                                <WinnerCard
+                                    rank={team.teamNumber}
+                                    teamName={team.projectName}
+                                    category={team.price || team.projectType}
+                                    imageSrc={team.imageSrc || "/alle-vinner.jpg"}
+                                    goat={team.goat}
+                                    className="w-full h-full"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* Other Teams Section - NON-WINNERS */}
+            {otherTeams.length > 0 && (
+                <div className="w-full max-w-7xl animate-fade-in-up mt-20">
+                    <div className="flex flex-col items-start mb-8 w-full">
+                        <div className="flex items-center gap-3 text-xl md:text-2xl font-medium">
+                            <span className="bg-gradient-to-r from-gray-300 via-gray-100 to-gray-400 bg-clip-text text-transparent font-bold">2026</span>
+                            <span className="bg-gradient-to-r from-gray-300 via-gray-100 to-gray-400 bg-clip-text text-transparent font-bold">Other Participant </span>
+                            <span className="text-xl">✨</span>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        {otherTeams.map((team) => (
+                            <div
+                                key={team.teamNumber}
+                                className="h-[250px] flex-1 min-w-[280px]"
                             >
                                 <WinnerCard
                                     rank={team.teamNumber}

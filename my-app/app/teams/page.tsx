@@ -9,6 +9,7 @@ interface TeamEntry {
     file: string;
     price?: string;
     goat?: boolean;
+    imageSrc?: string;
 }
 
 export default async function Teams() {
@@ -27,8 +28,17 @@ export default async function Teams() {
             const filePath = path.join(teamsDirectory, entry.file);
             const fileContent = await fs.readFile(filePath, 'utf8');
             const teamData = JSON.parse(fileContent);
+
+            // Construct logo path
+            const logoPath = `/media/logoer/Team-${entry.teamNumber}.png`;
+
             // Merge the info from index.json (like price) with the file content
-            return { ...teamData, ...entry };
+            // If imageSrc is not present (non-winners), use the logo path
+            return {
+                ...teamData,
+                ...entry,
+                imageSrc: entry.imageSrc || logoPath
+            };
         }));
     } catch (error) {
         console.error("Error reading team data:", error);

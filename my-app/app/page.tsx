@@ -1,15 +1,27 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import Navbar from "@/components/Navbar";
 import Winners from "@/components/Winners";
-import LightRays from "@/components/LightRays";
+import FloatingLines from "@/components/FloatingLines";
 
 export default function Home() {
   const [videoOpacity, setVideoOpacity] = useState(1);
   const [animationStage, setAnimationStage] = useState<'initial' | 'text-visible' | 'final'>('initial');
   const [showLightRays, setShowLightRays] = useState(false);
+  const [showButton, setShowButton] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Memoize ALL arrays/objects to prevent FloatingLines from recreating the entire scene
+  const linesGradient = useMemo(() => [
+    "#B2A7E7", // Lavender Blue (Light)
+    "#93BBE7", // Soft Blue
+    "#4D8EC3", // Steel Blue (Darker)
+  ], []);
+
+  const enabledWaves = useMemo(() => ['top', 'middle', 'bottom'] as Array<'top' | 'middle' | 'bottom'>, []);
+  const lineCount = useMemo(() => [3, 3, 3], []);
+  const lineDistance = useMemo(() => [4, 4, 4], []);
 
   // Intro Animation Sequence
   useEffect(() => {
@@ -27,6 +39,11 @@ export default function Home() {
     setTimeout(() => {
       setShowLightRays(true);
     }, 2000);
+
+    // Stage 4: Show Button (after all animations complete)
+    setTimeout(() => {
+      setShowButton(true);
+    }, 3500);
   }, []);
 
   // Video fade loop effect
@@ -67,17 +84,19 @@ export default function Home() {
         {/* Background Glow - fades in at final stage */}
         <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none transition-opacity duration-1000 delay-500 ${animationStage === 'final' ? 'opacity-100' : 'opacity-0'}`}></div>
 
-        {/* Light Rays Animation - Appears after everything settles */}
-        <div className={`absolute inset-0 pointer-events-none transition-opacity duration-[3000ms] ease-in-out z-0 ${showLightRays ? 'opacity-100' : 'opacity-0'}`}>
-          <LightRays
-            raysOrigin="top-center"
-            raysColor="#4D8EC3"
-            raysSpeed={0.5}
-            lightSpread={0.2}
-            rayLength={1.5}
-            followMouse={true}
-            mouseInfluence={0.05}
-            className="w-full h-full"
+        {/* Floating Lines Animation - Appears after everything settles */}
+        <div className={`absolute inset-0 transition-opacity duration-[3000ms] ease-in-out z-0 ${showLightRays ? 'opacity-100' : 'opacity-0'}`}>
+          <FloatingLines
+            enabledWaves={enabledWaves}
+            lineCount={lineCount}
+            lineDistance={lineDistance}
+            bendRadius={2}
+            bendStrength={0.5}
+            interactive={true}
+            parallax={true}
+            parallaxStrength={0.1}
+            animationSpeed={0.3}
+            linesGradient={linesGradient}
           />
         </div>
 
@@ -125,6 +144,47 @@ export default function Home() {
               AI-AWARDS
             </h1>
           </div>
+
+          {/* See Winners Button - Absolutely positioned to prevent layout shift */}
+          {showButton && (
+            <a
+              href="/teams"
+              className="absolute top-[65%] left-1/2 -translate-x-1/2 group relative px-8 py-4 bg-gradient-to-r from-[#8B7BC4] via-[#6B9DD4] to-[#3B6FA3] rounded-full font-bold text-white text-lg tracking-wide overflow-hidden transition-all duration-1000 hover:scale-105 hover:shadow-[0_0_40px_rgba(139,123,196,0.6)] animate-pulse hover:animate-none opacity-0 animate-fade-in"
+              style={{ animation: 'fadeIn 1s ease-in forwards' }}
+            >
+              {/* Animated shine effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+
+              {/* Button text */}
+              <span className="relative z-10 flex items-center gap-2">
+                See Winners
+                <svg
+                  className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+
+              {/* Glow effect behind button */}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#8B7BC4] via-[#6B9DD4] to-[#3B6FA3] blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+            </a>
+          )}
+
+          <style jsx>{`
+            @keyframes fadeIn {
+              from {
+                opacity: 0;
+                transform: translateY(10px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+          `}</style>
         </div>
       </section>
     </main>
