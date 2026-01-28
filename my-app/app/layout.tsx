@@ -1,34 +1,3 @@
-import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "AI-Awards 2026",
-  description: "The future of AI recognition.",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en" className="dark">
-      <body
-        className={`${inter.variable} ${playfair.variable} antialiased bg-black text-white`}
-      >
-        {children}
-      </body>
-    </html>
-  );
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0b744ae4d0c2139a901bdd86a74b04d320aaa76f8fa3520cd40ca7debdb04655
+size 721
