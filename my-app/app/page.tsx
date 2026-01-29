@@ -132,7 +132,7 @@ export default function Home() {
           {/* Text Container */}
           {/* initially offset UP to overlap the hidden orb space, then drops to 0 */}
           <div className={`
-            flex flex-col items-center transition-all duration-1000 ease-in-out
+            flex flex-col items-center transition-all duration-1000 ease-in-out relative
             ${animationStage === 'initial' ? 'opacity-0 -translate-y-[130px] md:-translate-y-[160px]' : ''}
             ${animationStage === 'text-visible' ? 'opacity-100 -translate-y-[130px] md:-translate-y-[160px]' : ''}
             ${animationStage === 'final' ? 'opacity-100 translate-y-0' : ''}
@@ -146,32 +146,35 @@ export default function Home() {
           </div>
 
           {/* See Winners Button - Absolutely positioned to prevent layout shift */}
-          {showButton && (
-            <a
-              href="/teams"
-              className="absolute top-[65%] left-1/2 -translate-x-1/2 group relative px-8 py-4 bg-gradient-to-r from-[#8B7BC4] via-[#6B9DD4] to-[#3B6FA3] rounded-full font-bold text-white text-lg tracking-wide overflow-hidden transition-all duration-1000 hover:scale-105 hover:shadow-[0_0_40px_rgba(139,123,196,0.6)] animate-pulse hover:animate-none opacity-0 animate-fade-in"
-              style={{ animation: 'fadeIn 1s ease-in forwards' }}
-            >
-              {/* Animated shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+          {/* See Winners Button - Wrapper handles positioning, button handles visibility animation */}
+          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-12 w-max">
+            {showButton && (
+              <a
+                href="/teams"
+                className="block group relative px-8 py-4 bg-gradient-to-r from-[#8B7BC4] via-[#6B9DD4] to-[#3B6FA3] rounded-full font-bold text-white text-lg tracking-wide overflow-hidden transition-all duration-1000 hover:scale-105 hover:shadow-[0_0_40px_rgba(139,123,196,0.6)] animate-pulse hover:animate-none opacity-0 animate-fade-in"
+                style={{ animation: 'fadeIn 1s ease-in forwards' }}
+              >
+                {/* Animated shine effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
 
-              {/* Button text */}
-              <span className="relative z-10 flex items-center gap-2">
-                See Winners
-                <svg
-                  className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </span>
+                {/* Button text */}
+                <span className="relative z-10 flex items-center gap-2">
+                  See Winners
+                  <svg
+                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
 
-              {/* Glow effect behind button */}
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#8B7BC4] via-[#6B9DD4] to-[#3B6FA3] blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
-            </a>
-          )}
+                {/* Glow effect behind button */}
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#8B7BC4] via-[#6B9DD4] to-[#3B6FA3] blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
+              </a>
+            )}
+          </div>
 
           <style jsx>{`
             @keyframes fadeIn {
@@ -187,6 +190,6 @@ export default function Home() {
           `}</style>
         </div>
       </section>
-    </main>
+    </main >
   );
 }
