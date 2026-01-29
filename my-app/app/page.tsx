@@ -85,16 +85,16 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="h-screen w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth relative bg-black text-white">
+    <main className="h-[100dvh] w-full overflow-hidden relative bg-black text-white">
       {/* Navbar fades in only at the final stage */}
       <div className={`transition-opacity duration-1000 delay-500 ${animationStage === 'final' ? 'opacity-100' : 'opacity-0'}`}>
         <Navbar />
       </div>
 
       {/* Hero Section */}
-      <section className="h-screen w-full snap-start flex flex-col items-center justify-center relative overflow-hidden">
+      <section className="h-full w-full flex flex-col items-center justify-center relative overflow-hidden">
         {/* Background Glow - fades in at final stage */}
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none transition-opacity duration-1000 delay-500 ${animationStage === 'final' ? 'opacity-100' : 'opacity-0'}`}></div>
+        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] bg-blue-900/10 blur-[60px] md:blur-[120px] rounded-full pointer-events-none transition-opacity duration-1000 delay-500 ${animationStage === 'final' ? 'opacity-100' : 'opacity-0'}`}></div>
 
         {/* Floating Lines Animation - Appears after everything settles */}
         <div className={`absolute inset-0 transition-opacity duration-[3000ms] ease-in-out z-0 ${showLightRays ? 'opacity-100' : 'opacity-0'}`}>
@@ -112,7 +112,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-10 flex flex-col items-center text-center">
+        <div className="relative z-10 flex flex-col items-center text-center px-4 w-full">
 
           {/* Orb Video Container */}
           {/* Layout is natural flex column. We offset positions to animate. */}
@@ -130,7 +130,7 @@ export default function Home() {
                 loop
                 muted
                 playsInline
-                className="w-[200px] h-[200px] md:w-[250px] md:h-[250px] object-contain transition-opacity duration-500"
+                className="w-[180px] h-[180px] md:w-[350px] md:h-[350px] object-contain transition-opacity duration-500"
                 style={{ opacity: videoOpacity }}
               >
                 <source src="/orb.mp4" type="video/mp4" />
@@ -138,32 +138,32 @@ export default function Home() {
             </div>
 
             {/* Subtle glow behind the orb */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] bg-blue-500/20 blur-[50px] rounded-full -z-10"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] md:w-[200px] md:h-[200px] bg-blue-500/20 blur-[40px] md:blur-[60px] rounded-full -z-10"></div>
           </div>
 
           {/* Text Container */}
           {/* initially offset UP to overlap the hidden orb space, then drops to 0 */}
           <div className={`
             flex flex-col items-center transition-all duration-1000 ease-in-out relative
-            ${animationStage === 'initial' ? 'opacity-0 -translate-y-[130px] md:-translate-y-[160px]' : ''}
-            ${animationStage === 'text-visible' ? 'opacity-100 -translate-y-[130px] md:-translate-y-[160px]' : ''}
+            ${animationStage === 'initial' ? 'opacity-0 -translate-y-[80px] md:-translate-y-[160px]' : ''}
+            ${animationStage === 'text-visible' ? 'opacity-100 -translate-y-[80px] md:-translate-y-[160px]' : ''}
             ${animationStage === 'final' ? 'opacity-100 translate-y-0' : ''}
           `}>
-            <h2 className="font-serif text-4xl md:text-5xl mb-2 font-light bg-gradient-to-r from-[#B2A7E7] via-[#93BBE7] to-[#4D8EC3] bg-clip-text text-transparent">
+            <h2 className="font-serif text-3xl md:text-5xl mb-1 md:mb-2 font-light bg-gradient-to-r from-[#B2A7E7] via-[#93BBE7] to-[#4D8EC3] bg-clip-text text-transparent">
               2026
             </h2>
-            <h1 className="font-sans text-5xl md:text-5xl font-black tracking-widest text-white drop-shadow-[0_0_25px_rgba(77,142,195,0.4)]">
+            <h1 className="font-sans text-4xl md:text-6xl font-black tracking-widest text-white drop-shadow-[0_0_25px_rgba(77,142,195,0.4)]">
               AI-AWARDS
             </h1>
           </div>
 
-          {/* See Winners Button - Absolutely positioned to prevent layout shift */}
-          {/* See Winners Button - Wrapper handles positioning, button handles visibility animation */}
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-12 w-max">
+          {/* See Winners Button */}
+          {/* Wrapper handles positioning, button handles visibility animation */}
+          <div className="mt-8 md:mt-12 h-16 w-full flex justify-center">
             {showButton && (
               <a
                 href="/teams"
-                className="block group relative px-8 py-4 bg-gradient-to-r from-[#8B7BC4] via-[#6B9DD4] to-[#3B6FA3] rounded-full font-bold text-white text-lg tracking-wide overflow-hidden transition-all duration-1000 hover:scale-105 hover:shadow-[0_0_40px_rgba(139,123,196,0.6)] animate-pulse hover:animate-none opacity-0 animate-fade-in"
+                className="group relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#8B7BC4] via-[#6B9DD4] to-[#3B6FA3] rounded-full font-bold text-white text-base md:text-lg tracking-wide overflow-hidden transition-all duration-1000 hover:scale-105 hover:shadow-[0_0_40px_rgba(139,123,196,0.6)] animate-pulse hover:animate-none opacity-0 flex items-center gap-2"
                 style={{ animation: 'fadeIn 1s ease-in forwards' }}
               >
                 {/* Animated shine effect */}
@@ -173,7 +173,7 @@ export default function Home() {
                 <span className="relative z-10 flex items-center gap-2">
                   See Winners
                   <svg
-                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                    className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
