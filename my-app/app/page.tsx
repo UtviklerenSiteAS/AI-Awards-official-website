@@ -10,7 +10,8 @@ import FloatingLines from "@/components/FloatingLines";
 let hasIntroPlayed = false;
 
 export default function Home() {
-  const [videoOpacity, setVideoOpacity] = useState(1);
+  /* const [videoOpacity, setVideoOpacity] = useState(1); */
+  /* fade removed as per user request */
   const [animationStage, setAnimationStage] = useState<'initial' | 'text-visible' | 'final'>(hasIntroPlayed ? 'final' : 'initial');
   const [showLightRays, setShowLightRays] = useState(hasIntroPlayed);
   const [showButton, setShowButton] = useState(hasIntroPlayed);
@@ -58,31 +59,7 @@ export default function Home() {
     }, 3500);
   }, []);
 
-  // Video fade loop effect
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    const handleTimeUpdate = () => {
-      const duration = video.duration;
-      const currentTime = video.currentTime;
-
-      // Fade out in the last 0.3 seconds
-      if (duration - currentTime < 0.3) {
-        setVideoOpacity(0);
-      }
-      // Fade in at the beginning (first 0.3 seconds)
-      else if (currentTime < 0.3) {
-        setVideoOpacity(1);
-      }
-    };
-
-    video.addEventListener('timeupdate', handleTimeUpdate);
-
-    return () => {
-      video.removeEventListener('timeupdate', handleTimeUpdate);
-    };
-  }, []);
+  /* Video fade loop removed */
 
   return (
     <main className="h-[100dvh] w-full overflow-hidden relative bg-black text-white">
@@ -131,7 +108,6 @@ export default function Home() {
                 muted
                 playsInline
                 className="w-[180px] h-[180px] md:w-[250px] md:h-[250px] object-contain transition-opacity duration-500"
-                style={{ opacity: videoOpacity }}
               >
                 <source src="/orb.mp4" type="video/mp4" />
               </video>
