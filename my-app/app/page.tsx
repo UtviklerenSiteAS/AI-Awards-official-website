@@ -5,11 +5,15 @@ import Navbar from "@/components/Navbar";
 import Winners from "@/components/Winners";
 import FloatingLines from "@/components/FloatingLines";
 
+// Module-level variable to track if animation has played during the current session (SPA navigation)
+// This resets on page reload, but persists when navigating between pages.
+let hasIntroPlayed = false;
+
 export default function Home() {
   const [videoOpacity, setVideoOpacity] = useState(1);
-  const [animationStage, setAnimationStage] = useState<'initial' | 'text-visible' | 'final'>('initial');
-  const [showLightRays, setShowLightRays] = useState(false);
-  const [showButton, setShowButton] = useState(false);
+  const [animationStage, setAnimationStage] = useState<'initial' | 'text-visible' | 'final'>(hasIntroPlayed ? 'final' : 'initial');
+  const [showLightRays, setShowLightRays] = useState(hasIntroPlayed);
+  const [showButton, setShowButton] = useState(hasIntroPlayed);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Memoize ALL arrays/objects to prevent FloatingLines from recreating the entire scene
@@ -24,7 +28,13 @@ export default function Home() {
   const lineDistance = useMemo(() => [4, 4, 4], []);
 
   // Intro Animation Sequence
+  // Intro Animation Sequence
   useEffect(() => {
+    // Check if animation has already played in this SPA session
+    if (hasIntroPlayed) {
+      return;
+    }
+
     // Stage 1: Fade in text (start immediately)
     setTimeout(() => {
       setAnimationStage('text-visible');
@@ -43,6 +53,8 @@ export default function Home() {
     // Stage 4: Show Button (after all animations complete)
     setTimeout(() => {
       setShowButton(true);
+      // Mark as played ONLY after animation finishes to handle Strict Mode double-mount
+      hasIntroPlayed = true;
     }, 3500);
   }, []);
 
