@@ -24,7 +24,7 @@ export default function TextScene({ scene }) {
       clearTimeout(timer);
       setIsVisible(false);
     };
-  }, [scene.id]);
+  }, [scene, playMusic, playSfx, playVoice]);
 
   const getTextClass = (style) => {
     switch (style) {

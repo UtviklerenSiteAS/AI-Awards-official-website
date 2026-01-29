@@ -31,8 +31,8 @@ export default function ImageScene({ scene }) {
   const placeholderColors = getPlaceholderColor(imageType);
 
   useEffect(() => {
-    setImageError(false);
-    setIsLoaded(false);
+    // setImageError(false) - handled by key remount
+    // setIsLoaded(false) - handled by key remount
 
     // Play audio (single values)
     if (scene.audio?.music) {
@@ -115,7 +115,7 @@ export default function ImageScene({ scene }) {
       )}
 
       <div className="scene__overlay" />
-      
+
       {content.location && (
         <div className="scene__location">
           {content.location}

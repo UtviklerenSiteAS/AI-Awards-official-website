@@ -7,14 +7,14 @@ export default function FlashEffect() {
 
   useEffect(() => {
     // Check if current scene has a flash effect
-    if (currentScene?.effects?.includes('flash') || 
-        currentScene?.effects?.includes('flash-end') ||
-        currentScene?.transition === 'flash') {
-      setIsFlashing(true);
+    if (currentScene?.effects?.includes('flash') ||
+      currentScene?.effects?.includes('flash-end') ||
+      currentScene?.transition === 'flash') {
+      setTimeout(() => setIsFlashing(true), 0);
       const timer = setTimeout(() => setIsFlashing(false), 500);
       return () => clearTimeout(timer);
     }
-  }, [currentScene?.id]);
+  }, [currentScene]);
 
   return (
     <div className={`effect-flash ${isFlashing ? 'is-active' : ''}`} />

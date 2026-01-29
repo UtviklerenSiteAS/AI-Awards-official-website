@@ -11,7 +11,7 @@ export default function VideoScene({ scene }) {
   const videoPath = VIDEO_MANIFEST[content.video] || `assets/videos/${content.video}`;
 
   useEffect(() => {
-    setVideoError(false);
+    // setVideoError(false) - handled by key remount
 
     // Play audio (single values)
     if (scene.audio?.music) {
@@ -47,7 +47,7 @@ export default function VideoScene({ scene }) {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: isDystopia 
+          background: isDystopia
             ? 'linear-gradient(135deg, #1a0a0a 0%, #2d0a0a 100%)'
             : 'linear-gradient(135deg, #0a1a2a 0%, #1a2a3a 100%)',
         }}>

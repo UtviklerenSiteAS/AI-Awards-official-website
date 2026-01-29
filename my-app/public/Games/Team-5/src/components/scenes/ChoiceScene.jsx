@@ -15,11 +15,16 @@ export default function ChoiceScene({ scene }) {
   const refuseBg = IMAGE_MANIFEST[backgrounds.refuse] || `/assets/images/${backgrounds.refuse}`;
 
   useEffect(() => {
+    const bgs = scene.content.backgrounds || {};
+    const d = IMAGE_MANIFEST[bgs.default] || `/assets/images/${bgs.default}`;
+    const t = IMAGE_MANIFEST[bgs.take] || `/assets/images/${bgs.take}`;
+    const r = IMAGE_MANIFEST[bgs.refuse] || `/assets/images/${bgs.refuse}`;
+
     // Preload images
-    if (backgrounds.default) new Image().src = defaultBg;
-    if (backgrounds.take) new Image().src = takeBg;
-    if (backgrounds.refuse) new Image().src = refuseBg;
-  }, [defaultBg, takeBg, refuseBg, backgrounds]);
+    if (bgs.default) new Image().src = d;
+    if (bgs.take) new Image().src = t;
+    if (bgs.refuse) new Image().src = r;
+  }, [scene]);
 
   const handleChoice = (choiceId) => {
     makeChoice(choiceId);
@@ -27,7 +32,7 @@ export default function ChoiceScene({ scene }) {
 
   const handleMouseEnter = (optionId) => {
     setHoveredOption(optionId);
-    
+
     if (optionId === 'take') {
       playSfx('alarm-notif');
     } else if (optionId === 'refuse') {
@@ -39,40 +44,34 @@ export default function ChoiceScene({ scene }) {
     setHoveredOption(null);
   };
 
-  const getCurrentBackground = () => {
-    if (hoveredOption === 'take') return takeBg;
-    if (hoveredOption === 'refuse') return refuseBg;
-    return defaultBg;
-  };
-
   return (
     <div className="scene scene--choice">
       {/* Background layers */}
-      <div 
+      <div
         className="choice__background choice__background--default"
-        style={{ 
+        style={{
           backgroundImage: `url(${defaultBg})`,
           opacity: hoveredOption === null ? 1 : 0,
         }}
       />
-      <div 
+      <div
         className="choice__background choice__background--take"
-        style={{ 
+        style={{
           backgroundImage: `url(${takeBg})`,
           opacity: hoveredOption === 'take' ? 1 : 0,
         }}
       />
-      <div 
+      <div
         className="choice__background choice__background--refuse"
-        style={{ 
+        style={{
           backgroundImage: `url(${refuseBg})`,
           opacity: hoveredOption === 'refuse' ? 1 : 0,
         }}
       />
-      
+
       {/* Overlay for readability */}
       <div className="choice__overlay" />
-      
+
       {/* Content */}
       <div className="choice__container">
         <h2 className="choice__question">{content.question}</h2>

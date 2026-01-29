@@ -19,17 +19,6 @@ export default function GlitchScene({ scene }) {
     return Math.random() * 150 + 50;
   }, []);
 
-  const scheduleNextFlicker = useCallback(() => {
-    if (!isActiveRef.current) return;
-    
-    const delay = getRandomDelay();
-    timeoutRef.current = setTimeout(() => {
-      if (!isActiveRef.current) return;
-      setShowDystopia(prev => !prev);
-      scheduleNextFlicker();
-    }, delay);
-  }, [getRandomDelay]);
-
   useEffect(() => {
     isActiveRef.current = true;
 
@@ -47,9 +36,20 @@ export default function GlitchScene({ scene }) {
       playSfx(scene.audio.sfx);
     }
 
-    // Start random flickering after initial delay
+    // Start random flickering
+    const loopFlicker = () => {
+      if (!isActiveRef.current) return;
+
+      const delay = getRandomDelay();
+      timeoutRef.current = setTimeout(() => {
+        if (!isActiveRef.current) return;
+        setShowDystopia(prev => !prev);
+        loopFlicker();
+      }, delay);
+    };
+
     const startTimer = setTimeout(() => {
-      scheduleNextFlicker();
+      loopFlicker();
     }, 300);
 
     return () => {
@@ -59,29 +59,7 @@ export default function GlitchScene({ scene }) {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [scene, playSfx, utopiaPath, dystopiaPath, scheduleNextFlicker]);
-
-  const PlaceholderLayer = ({ type, label }) => (
-    <div style={{
-      position: 'absolute',
-      inset: 0,
-      background: type === 'utopia' 
-        ? 'linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%)'
-        : 'linear-gradient(135deg, #1a0a0a 0%, #742a2a 100%)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
-      <div style={{
-        fontSize: '0.75rem',
-        textTransform: 'uppercase',
-        letterSpacing: '3px',
-        opacity: 0.5,
-      }}>
-        [{type}] {label}
-      </div>
-    </div>
-  );
+  }, [scene, playSfx, utopiaPath, dystopiaPath, getRandomDelay]);
 
   return (
     <div className="scene scene--glitch is-glitching">
@@ -103,3 +81,25 @@ export default function GlitchScene({ scene }) {
     </div>
   );
 }
+
+const PlaceholderLayer = ({ type, label }) => (
+  <div style={{
+    position: 'absolute',
+    inset: 0,
+    background: type === 'utopia'
+      ? 'linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%)'
+      : 'linear-gradient(135deg, #1a0a0a 0%, #742a2a 100%)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }}>
+    <div style={{
+      fontSize: '0.75rem',
+      textTransform: 'uppercase',
+      letterSpacing: '3px',
+      opacity: 0.5,
+    }}>
+      [{type}] {label}
+    </div>
+  </div>
+);

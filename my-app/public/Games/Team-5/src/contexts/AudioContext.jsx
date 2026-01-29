@@ -8,7 +8,7 @@ const FADE_DURATION = 800; // ms
 export function AudioProvider({ children }) {
   const [isAudioEnabled, setIsAudioEnabled] = useState(false);
   const [currentMusicId, setCurrentMusicId] = useState(null);
-  
+
   const musicRef = useRef(null);
   const sfxRef = useRef(null);
   const voiceRef = useRef(null);
@@ -77,7 +77,7 @@ export function AudioProvider({ children }) {
       console.log('Audio not enabled yet');
       return;
     }
-    
+
     const src = AUDIO_MANIFEST.music?.[trackId];
     if (!src) {
       console.warn(`Music track not found: ${trackId}`);
@@ -94,7 +94,7 @@ export function AudioProvider({ children }) {
 
     // Fade out current music, then play new one
     const oldMusic = musicRef.current;
-    
+
     const startNewMusic = () => {
       const audio = new Audio(src);
       audio.loop = loop;
@@ -222,6 +222,7 @@ export function AudioProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAudio() {
   const context = useContext(AudioContext);
   if (!context) {

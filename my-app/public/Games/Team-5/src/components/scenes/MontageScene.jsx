@@ -10,7 +10,7 @@ export default function MontageScene({ scene }) {
   const imagePath = IMAGE_MANIFEST[content.image] || `/assets/images/${content.image}`;
 
   useEffect(() => {
-    setImageError(false);
+    // setImageError(false) - handled by key remount
 
     // Preload image
     const img = new Image();
