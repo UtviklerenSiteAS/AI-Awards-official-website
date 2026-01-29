@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "npm install --prefix public/Games/Team-5 && npm run build --prefix public/Games/Team-5 && next build",
         "start": "next start",
         "lint": "next lint"
     },
