@@ -130,7 +130,7 @@ export default function Home() {
                 loop
                 muted
                 playsInline
-                className="w-[180px] h-[180px] md:w-[350px] md:h-[350px] object-contain transition-opacity duration-500"
+                className="w-[180px] h-[180px] md:w-[250px] md:h-[250px] object-contain transition-opacity duration-500"
                 style={{ opacity: videoOpacity }}
               >
                 <source src="/orb.mp4" type="video/mp4" />
@@ -152,18 +152,19 @@ export default function Home() {
             <h2 className="font-serif text-3xl md:text-5xl mb-1 md:mb-2 font-light bg-gradient-to-r from-[#B2A7E7] via-[#93BBE7] to-[#4D8EC3] bg-clip-text text-transparent">
               2026
             </h2>
-            <h1 className="font-sans text-4xl md:text-6xl font-black tracking-widest text-white drop-shadow-[0_0_25px_rgba(77,142,195,0.4)]">
+            <h1 className="font-sans text-4xl md:text-5xl font-black tracking-widest text-white drop-shadow-[0_0_25px_rgba(77,142,195,0.4)]">
               AI-AWARDS
             </h1>
           </div>
 
           {/* See Winners Button */}
           {/* Wrapper handles positioning, button handles visibility animation */}
-          <div className="mt-8 md:mt-12 h-16 w-full flex justify-center">
+          {/* Absolutely positioned to prevent layout shift and keep content centered */}
+          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-8 md:mt-12 w-max">
             {showButton && (
               <a
                 href="/teams"
-                className="group relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#8B7BC4] via-[#6B9DD4] to-[#3B6FA3] rounded-full font-bold text-white text-base md:text-lg tracking-wide overflow-hidden transition-all duration-1000 hover:scale-105 hover:shadow-[0_0_40px_rgba(139,123,196,0.6)] animate-pulse hover:animate-none opacity-0 flex items-center gap-2"
+                className="group relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#8B7BC4] via-[#6B9DD4] to-[#3B6FA3] rounded-full font-bold text-white text-base md:text-lg tracking-wide overflow-hidden transition-all duration-1000 hover:scale-105 hover:shadow-[0_0_40px_rgba(139,123,196,0.6)] animate-pulse hover:animate-none opacity-0 flex items-center gap-2 block"
                 style={{ animation: 'fadeIn 1s ease-in forwards' }}
               >
                 {/* Animated shine effect */}
