@@ -19,6 +19,7 @@ interface ProjectData {
     imageSrc?: string;
     goat?: boolean;
     promotionalVideo?: string;
+    appShowcaseVideo?: string;
     projectUrl?: string;
     folderPath?: string;
 }
@@ -160,9 +161,9 @@ export default function ProjectCatalog({ projects }: { projects: ProjectData[] }
                                     </div>
                                 )}
 
-                                {/* Promotional Video */}
+                                {/* Promotional Video (Project Trailer) */}
                                 {selectedProject.promotionalVideo && (
-                                    <div className="w-full">
+                                    <div className="w-full mb-6">
                                         <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Project Trailer</h4>
                                         <div className="relative aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10">
                                             <video
@@ -170,6 +171,22 @@ export default function ProjectCatalog({ projects }: { projects: ProjectData[] }
                                                 controls
                                                 className="w-full h-full"
                                                 poster={selectedProject.imageSrc}
+                                            >
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* App Showcase Video */}
+                                {selectedProject.appShowcaseVideo && (
+                                    <div className="w-full">
+                                        <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Showcase</h4>
+                                        <div className="relative aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10">
+                                            <video
+                                                src={selectedProject.appShowcaseVideo}
+                                                controls
+                                                className="w-full h-full"
                                             >
                                                 Your browser does not support the video tag.
                                             </video>

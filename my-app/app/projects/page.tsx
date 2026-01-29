@@ -32,9 +32,26 @@ export default async function Projects() {
             // Construct logo path
             const logoPath = `/media/logoer/Team-${entry.teamNumber}.png`;
 
+            // Check if app showcase video exists
+            const showcaseVideoPath = `/app-showcase/Team-${entry.teamNumber}.mp4`;
+            const absoluteShowcasePath = path.join(process.cwd(), 'public', showcaseVideoPath);
+            let hasShowcase = false;
+            try {
+                await fs.access(absoluteShowcasePath);
+                hasShowcase = true;
+            } catch {
+                // No showcase video found
+            }
+
             // Merge the info from index.json (like price, imageSrc) with the file content
             // We verify if logo exists, but here we assume it does based on listing.
-            return { ...teamData, ...entry, imageSrc: logoPath }; // Use logoPath as imageSrc for projects list
+            return {
+                ...teamData,
+                ...entry,
+                imageSrc: logoPath,
+                promotionalVideo: teamData.promotionalVideo, // Keep original trailer
+                appShowcaseVideo: hasShowcase ? showcaseVideoPath : undefined // Add showcase separately
+            }; // Use logoPath as imageSrc for projects list
         }));
     } catch (error) {
         console.error("Error reading team data:", error);
