@@ -120,8 +120,8 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
                 </div>
 
                 {/* Right Column: 2nd & 3rd Place */}
-                <div className="flex flex-col gap-6 h-[400px] md:h-full">
-                    <div className="flex-1">
+                <div className="flex flex-col gap-6 h-auto md:h-full">
+                    <div className="h-[250px] md:h-auto md:flex-1">
                         {team2 && (
                             <WinnerCard
                                 rank={team2.teamNumber}
@@ -133,7 +133,7 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
                             />
                         )}
                     </div>
-                    <div className="flex-1">
+                    <div className="h-[250px] md:h-auto md:flex-1">
                         {team3 && (
                             <WinnerCard
                                 rank={team3.teamNumber}
@@ -151,11 +151,11 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
             {/* Rest of Winners (4th place onwards) */}
             {restOfWinners.length > 0 && (
                 <div className="w-full max-w-7xl animate-fade-in-up">
-                    <div className="flex flex-wrap gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {restOfWinners.map((team) => (
                             <div
                                 key={team.teamNumber}
-                                className={`h-[250px] ${(team.teamNumber === 12) ? 'md:h-[400px] lg:h-[250px] xl:h-[400px] 2xl:h-[250px]' : ''} flex-1 min-w-[280px]`}
+                                className="h-[250px]"
                             >
                                 <WinnerCard
                                     rank={team.teamNumber}
