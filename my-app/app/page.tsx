@@ -90,7 +90,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative z-10 flex flex-col items-center text-center px-4 w-full">
+        <div className="relative z-10 flex flex-col items-center text-center px-4 w-full -mt-20 md:-mt-10">
 
           {/* Orb Video Container */}
           {/* Layout is natural flex column. We offset positions to animate. */}
@@ -111,14 +111,14 @@ export default function Home() {
                 loop
                 muted
                 playsInline
-                className="w-[180px] h-[180px] md:w-[250px] md:h-[250px] object-contain transition-opacity duration-500"
+                className="w-[140px] h-[140px] md:w-[200px] md:h-[200px] object-contain transition-opacity duration-500"
               >
                 <source src="/orb.mp4" type="video/mp4" />
               </video>
             </div>
 
             {/* Subtle glow behind the orb */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] md:w-[200px] md:h-[200px] bg-blue-500/20 blur-[40px] md:blur-[60px] rounded-full -z-10"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100px] h-[100px] md:w-[160px] md:h-[160px] bg-blue-500/20 blur-[40px] md:blur-[60px] rounded-full -z-10"></div>
           </div>
 
           {/* Text Container */}
@@ -135,6 +135,16 @@ export default function Home() {
             <h1 className="font-sans text-4xl md:text-5xl font-black tracking-widest text-white drop-shadow-[0_0_25px_rgba(77,142,195,0.4)]">
               AI-AWARDS
             </h1>
+
+            {/* Context & Quote */}
+            <div className="mt-4 flex flex-col items-center gap-3 max-w-2xl px-4">
+              <p className="text-gray-400 text-xs md:text-sm font-light tracking-wide leading-relaxed max-w-lg">
+                Created in just 2 weeks, this project explores the boundaries of AI through the lens of environment and sustainability.
+              </p>
+              <p className="text-blue-200/80 text-base md:text-lg font-serif italic tracking-wider">
+                “The only way to cheat is by writing it yourself.”
+              </p>
+            </div>
           </div>
 
           {/* See Winners Button */}
