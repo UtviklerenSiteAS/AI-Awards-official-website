@@ -90,7 +90,7 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
     const restOfWinners = winningTeams.slice(3);
 
     return (
-        <section className="min-h-screen w-full flex flex-col items-start relative overflow-hidden py-2 px-4 md:px-20 pb-20">
+        <section className="min-h-screen w-full flex flex-col items-start relative overflow-hidden py-2 px-4 md:px-12 xl:px-20 pb-20">
             {/* Title Header matching Frame 6 */}
             <div className="flex flex-col items-start mb-8 w-full">
                 <h1 className="text-6xl md:text-8xl font-black text-white tracking-tight mb-2">
@@ -182,11 +182,11 @@ export default function Winners({ teams = [] }: { teams?: TeamData[] }) {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {otherTeams.map((team) => (
                             <div
                                 key={team.teamNumber}
-                                className="h-[250px] flex-1 min-w-[280px]"
+                                className="h-[250px]"
                             >
                                 <WinnerCard
                                     rank={team.teamNumber}
