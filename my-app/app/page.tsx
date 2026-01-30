@@ -133,7 +133,7 @@ export default function Home() {
               2026
             </h2>
             <h1 className="font-sans text-4xl md:text-5xl font-black tracking-widest text-white drop-shadow-[0_0_25px_rgba(77,142,195,0.4)]">
-              AI-AWARDS
+              TANGEN AI-AWARDS
             </h1>
 
             {/* Context & Quote */}
@@ -142,7 +142,7 @@ export default function Home() {
                 Created in just 2 weeks, this project explores the boundaries of AI through the lens of environment and sustainability.
               </p>
               <p className="text-blue-200/80 text-base md:text-lg font-serif italic tracking-wider">
-                “The only way to cheat is by writing it yourself.”
+                “The only way to cheat, is by writing it yourself.”
               </p>
             </div>
           </div>
