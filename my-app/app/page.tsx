@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Winners from "@/components/Winners";
 import FloatingLines from "@/components/FloatingLines";
 
+
 // Module-level variable to track if animation has played during the current session (SPA navigation)
 // This resets on page reload, but persists when navigating between pages.
 let hasIntroPlayed = false;
@@ -93,6 +94,8 @@ export default function Home() {
 
           {/* Orb Video Container */}
           {/* Layout is natural flex column. We offset positions to animate. */}
+          {/* Orb Video Container */}
+          {/* Layout is natural flex column. We offset positions to animate. */}
           <div
             className={`
               scale-100 transition-all duration-1000 ease-in-out relative
@@ -102,6 +105,7 @@ export default function Home() {
             {/* Orb Video with Mask for seamless blending */}
             <div className="relative z-10" style={{ maskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)', WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 70%)' }}>
               <video
+                key="orb-video-original"
                 ref={videoRef}
                 autoPlay
                 loop
